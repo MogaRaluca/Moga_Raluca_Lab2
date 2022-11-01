@@ -6,13 +6,14 @@ namespace Moga_Raluca_Lab2.Models
     public class BookCategoriesPageModel : PageModel
     {
         public List<AssignedCategoryData> AssignedCategoryDataList;
-        public void PopulateAssignedCategoryData(Moga_Raluca_Lab2Context context,
-        Book book)
+        public void PopulateAssignedCategoryData(Moga_Raluca_Lab2Context context, Book book)
         {
             var allCategories = context.Category;
-            var bookCategories = new HashSet<int>(
-            book.BookCategories.Select(c => c.CategoryID)); //
+            var bookCategories = new HashSet<int>(book.BookCategories.Select(c => c.CategoryID)); //
+
+
             AssignedCategoryDataList = new List<AssignedCategoryData>();
+
             foreach (var cat in allCategories)
             {
                 AssignedCategoryDataList.Add(new AssignedCategoryData
